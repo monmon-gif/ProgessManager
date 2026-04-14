@@ -148,20 +148,14 @@ function renderTasks() {
       <div class="candidate">
         ${task.done ? "完了" : "候補"}
       </div>
-
       <div class="task-main">
         <div class="task-title">
           <span class="icon">${task.icon || "📍"}</span>
-          ${task.title}
+          <span>${task.title}</span>
         </div>
-
         ${adviceText ? `<div class="task-advice">${adviceText}</div>` : ""}
-
-        <div class="task-meta">
-          ${task.done ? "完了済み" : "未完了"}
-        </div>
+        <div class="task-meta">${task.done ? "完了済み" : "未完了"}</div>
       </div>
-
       <button class="check-btn" data-id="${task.id}">
         ${task.done ? "✓" : "○"}
       </button>
@@ -195,6 +189,7 @@ function render() {
   todayLabel.textContent = getTodayLabel();
   renderTasks();
   updateSummary();
+  pickRandomTask();
   saveTasks();
 }
 
@@ -215,14 +210,6 @@ function pickRandomTask() {
 randomBtn.addEventListener("click", () => {
   pickRandomTask();
 });
-
-function render() {
-  todayLabel.textContent = getTodayLabel();
-  renderTasks();
-  updateSummary();
-  pickRandomTask();
-  saveTasks();
-}
 
 taskContainer.addEventListener("click", (event) => {
   const button = event.target.closest(".check-btn");

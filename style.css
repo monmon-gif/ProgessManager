@@ -42,9 +42,10 @@ body {
 }
 
 .title {
-  font-size: 1.7rem;
+  font-size: 2rem;
   font-weight: 800;
   margin: 0;
+  letter-spacing: -0.02em;
 }
 
 .hero,
@@ -58,7 +59,7 @@ body {
 
 .hero {
   margin-top: 14px;
-  padding: 18px;
+  padding: 20px 18px;
 }
 
 .progress-row {
@@ -74,9 +75,10 @@ body {
 }
 
 .progress-value {
-  font-size: 2rem;
+  font-size: 2.2rem;
   font-weight: 800;
   line-height: 1;
+  margin-top: 4px;
 }
 
 .progress-track {
@@ -93,7 +95,6 @@ body {
   width: 0%;
   border-radius: 999px;
   background: var(--accent);
-  transition: width 0.25s ease;
   transition: width 0.3s ease, background 0.3s ease;
 }
 
@@ -102,7 +103,7 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 10px 12px;
+  padding: 10px 14px;
   border-radius: 999px;
   font-size: 0.92rem;
   font-weight: 700;
@@ -112,12 +113,12 @@ body {
 
 .task-list {
   margin-top: 14px;
-  padding: 12px;
+  padding: 14px;
 }
 
 .section-title {
-  margin: 4px 6px 12px;
-  font-size: 1rem;
+  margin: 4px 6px 14px;
+  font-size: 1.05rem;
   font-weight: 800;
 }
 
@@ -125,18 +126,30 @@ body {
   display: flex;
   align-items: center;
   gap: 12px;
-  padding: 14px 10px;
+  padding: 14px 12px;
   border-top: 1px solid var(--line);
+  transition: background 0.2s ease, transform 0.15s ease, opacity 0.2s ease;
 }
 
 .task:first-of-type {
   border-top: none;
 }
 
-.Candidate {
-  min-width: 58px;
-  font-weight: 800;
-  font-size: 0.95rem;
+.task:hover {
+  background: #f8fafc;
+}
+
+.task.done {
+  background: #f0fdf4;
+  opacity: 0.78;
+}
+
+.candidate {
+  min-width: 44px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--accent);
+  flex-shrink: 0;
 }
 
 .task-main {
@@ -145,14 +158,37 @@ body {
 }
 
 .task-title {
-  font-size: 0.98rem;
-  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1rem;
+  font-weight: 800;
+  line-height: 1.4;
   word-break: break-word;
+}
+
+.icon {
+  width: 32px;
+  height: 32px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #eef2ff;
+  border-radius: 999px;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+.task-advice {
+  margin-top: 4px;
+  font-size: 0.88rem;
+  color: #2563eb;
+  line-height: 1.4;
 }
 
 .task-meta {
   margin-top: 4px;
-  font-size: 0.82rem;
+  font-size: 0.8rem;
   color: var(--sub);
 }
 
@@ -160,24 +196,25 @@ body {
   border: none;
   background: #eef2ff;
   color: var(--accent);
-  width: 42px;
-  height: 42px;
+  width: 44px;
+  height: 44px;
   border-radius: 14px;
   font-size: 1.1rem;
   cursor: pointer;
   flex-shrink: 0;
+  transition: transform 0.15s ease, background 0.2s ease, color 0.2s ease;
 }
 
 .check-btn:active {
-  transform: scale(0.98);
-}
-
-.task.done {
-  opacity: 0.58;
+  transform: scale(0.94);
 }
 
 .task.done .task-title {
   text-decoration: line-through;
+}
+
+.task.done .icon {
+  background: #dcfce7;
 }
 
 .task.done .check-btn {
@@ -201,32 +238,6 @@ body {
   margin-top: 6px;
 }
 
-.actions {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
-  margin-top: 14px;
-}
-
-.btn {
-  border: none;
-  border-radius: 14px;
-  padding: 13px 12px;
-  font-size: 0.95rem;
-  font-weight: 800;
-  cursor: pointer;
-}
-
-.btn.primary {
-  background: var(--accent);
-  color: white;
-}
-
-.btn.secondary {
-  background: #eef2f7;
-  color: var(--text);
-}
-
 .badge-row {
   display: flex;
   flex-wrap: wrap;
@@ -241,16 +252,6 @@ body {
   padding: 8px 10px;
   font-size: 0.8rem;
   font-weight: 700;
-}
-
-.task-title {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.icon {
-  font-size: 1.2rem;
 }
 
 .random-box {
@@ -268,23 +269,71 @@ body {
   margin-top: 8px;
   font-size: 0.95rem;
   color: var(--text);
+  line-height: 1.5;
+}
+
+.actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.btn {
+  border: none;
+  border-radius: 14px;
+  padding: 13px 12px;
+  font-size: 0.95rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition: transform 0.15s ease, opacity 0.2s ease;
+}
+
+.btn:active {
+  transform: scale(0.97);
+}
+
+.btn.primary {
+  background: var(--accent);
+  color: white;
+}
+
+.btn.secondary {
+  background: #eef2f7;
+  color: var(--text);
 }
 
 #randomBtn {
   margin-top: 10px;
+  width: 100%;
 }
 
 @media (max-width: 360px) {
   .title {
-    font-size: 1.45rem;
-  }
-
-  .progress-value {
     font-size: 1.7rem;
   }
 
-  .time {
-    min-width: 52px;
-    font-size: 0.9rem;
+  .progress-value {
+    font-size: 1.9rem;
+  }
+
+  .candidate {
+    min-width: 38px;
+    font-size: 0.76rem;
+  }
+
+  .task-title {
+    font-size: 0.95rem;
+  }
+
+  .icon {
+    width: 30px;
+    height: 30px;
+    font-size: 1rem;
+  }
+
+  .check-btn {
+    width: 40px;
+    height: 40px;
   }
 }
