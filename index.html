@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+    <title>ひたち海浜プラン</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="app">
+      <header class="header">
+        <div class="date" id="todayLabel"></div>
+        <h1 class="title">プラン</h1>
+      </header>
+
+      <section class="hero">
+        <div class="progress-row">
+          <div>
+            <div class="progress-label">今日の達成率</div>
+            <div class="progress-value" id="progressText">0%</div>
+          </div>
+        </div>
+
+        <div class="progress-track">
+          <div class="progress-bar" id="progressBar"></div>
+        </div>
+
+        <div class="status" id="statusMessage">
+          まだ始まってない。今日はここから。
+        </div>
+      </section>
+
+      <section class="task-list">
+        <h2 class="section-title">予定一覧</h2>
+        <div id="taskContainer"></div>
+      </section>
+
+      <section class="footer-card">
+        <div class="next-task" id="nextTask">次にやること：読み込み中</div>
+        <div class="footer-sub" id="remainingText">実行した件数：0件</div>
+
+        <div class="random-box">
+          <div class="random-title">迷ったらこれ</div>
+          <div class="random-task" id="randomTask">まだ候補がないよ</div>
+          <button class="btn secondary" id="randomBtn">ランダム提案</button>
+        </div>
+
+        <div class="badge-row">
+          <div class="badge" id="lateBadge">判定：様子見</div>
+          <div class="badge">保存：端末内</div>
+        </div>
+
+        <div class="actions">
+          <button class="btn primary" id="markAllDoneBtn">全部完了</button>
+          <button class="btn secondary" id="resetBtn">リセット</button>
+        </div>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,290 @@
+:root {
+  --bg: #f5f7fb;
+  --card: #ffffff;
+  --text: #1f2937;
+  --sub: #6b7280;
+  --line: #e5e7eb;
+  --accent: #2563eb;
+  --good: #16a34a;
+  --warn: #f59e0b;
+  --bad: #dc2626;
+  --shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+  --radius: 18px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", sans-serif;
+  background: linear-gradient(180deg, #eef4ff 0%, var(--bg) 28%, var(--bg) 100%);
+  color: var(--text);
+}
+
+.app {
+  max-width: 480px;
+  margin: 0 auto;
+  min-height: 100dvh;
+  padding: 18px 14px 32px;
+}
+
+.header {
+  padding: 10px 4px 2px;
+}
+
+.date {
+  font-size: 0.9rem;
+  color: var(--sub);
+  margin-bottom: 6px;
+}
+
+.title {
+  font-size: 1.7rem;
+  font-weight: 800;
+  margin: 0;
+}
+
+.hero,
+.task-list,
+.footer-card {
+  background: var(--card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+}
+
+.hero {
+  margin-top: 14px;
+  padding: 18px;
+}
+
+.progress-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 12px;
+}
+
+.progress-label {
+  font-size: 0.95rem;
+  color: var(--sub);
+}
+
+.progress-value {
+  font-size: 2rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.progress-track {
+  width: 100%;
+  height: 12px;
+  border-radius: 999px;
+  background: #e5edff;
+  overflow: hidden;
+  margin-top: 14px;
+}
+
+.progress-bar {
+  height: 100%;
+  width: 0%;
+  border-radius: 999px;
+  background: var(--accent);
+  transition: width 0.25s ease;
+  transition: width 0.3s ease, background 0.3s ease;
+}
+
+.status {
+  margin-top: 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 12px;
+  border-radius: 999px;
+  font-size: 0.92rem;
+  font-weight: 700;
+  background: #eff6ff;
+  color: var(--accent);
+}
+
+.task-list {
+  margin-top: 14px;
+  padding: 12px;
+}
+
+.section-title {
+  margin: 4px 6px 12px;
+  font-size: 1rem;
+  font-weight: 800;
+}
+
+.task {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 10px;
+  border-top: 1px solid var(--line);
+}
+
+.task:first-of-type {
+  border-top: none;
+}
+
+.Candidate {
+  min-width: 58px;
+  font-weight: 800;
+  font-size: 0.95rem;
+}
+
+.task-main {
+  flex: 1;
+  min-width: 0;
+}
+
+.task-title {
+  font-size: 0.98rem;
+  font-weight: 700;
+  word-break: break-word;
+}
+
+.task-meta {
+  margin-top: 4px;
+  font-size: 0.82rem;
+  color: var(--sub);
+}
+
+.check-btn {
+  border: none;
+  background: #eef2ff;
+  color: var(--accent);
+  width: 42px;
+  height: 42px;
+  border-radius: 14px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.check-btn:active {
+  transform: scale(0.98);
+}
+
+.task.done {
+  opacity: 0.58;
+}
+
+.task.done .task-title {
+  text-decoration: line-through;
+}
+
+.task.done .check-btn {
+  background: #dcfce7;
+  color: var(--good);
+}
+
+.footer-card {
+  margin-top: 14px;
+  padding: 16px;
+}
+
+.next-task {
+  font-size: 1rem;
+  font-weight: 800;
+}
+
+.footer-sub {
+  font-size: 0.9rem;
+  color: var(--sub);
+  margin-top: 6px;
+}
+
+.actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.btn {
+  border: none;
+  border-radius: 14px;
+  padding: 13px 12px;
+  font-size: 0.95rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.btn.primary {
+  background: var(--accent);
+  color: white;
+}
+
+.btn.secondary {
+  background: #eef2f7;
+  color: var(--text);
+}
+
+.badge-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.badge {
+  background: #f3f4f6;
+  color: var(--sub);
+  border-radius: 999px;
+  padding: 8px 10px;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.task-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.icon {
+  font-size: 1.2rem;
+}
+
+.random-box {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+}
+
+.random-title {
+  font-size: 0.9rem;
+  font-weight: 800;
+}
+
+.random-task {
+  margin-top: 8px;
+  font-size: 0.95rem;
+  color: var(--text);
+}
+
+#randomBtn {
+  margin-top: 10px;
+}
+
+@media (max-width: 360px) {
+  .title {
+    font-size: 1.45rem;
+  }
+
+  .progress-value {
+    font-size: 1.7rem;
+  }
+
+  .time {
+    min-width: 52px;
+    font-size: 0.9rem;
+  }
+}
