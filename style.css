@@ -194,19 +194,25 @@ body {
 
 .check-btn {
   border: none;
-  background: #eef2ff;
-  color: var(--accent);
-  width: 44px;
-  height: 44px;
-  border-radius: 14px;
-  font-size: 1.1rem;
+  background: linear-gradient(135deg, #dbeafe, #eef2ff);
+  color: #2563eb;
+  width: 52px;
+  height: 52px;
+  border-radius: 18px;
+  font-size: 0.95rem;
+  font-weight: 800;
   cursor: pointer;
-  flex-shrink: 0;
-  transition: transform 0.15s ease, background 0.2s ease, color 0.2s ease;
+  transition: transform 0.12s ease, box-shadow 0.2s ease, background 0.2s ease;
+  box-shadow: 0 8px 18px rgba(37, 99, 235, 0.15);
 }
 
 .check-btn:active {
-  transform: scale(0.94);
+  transform: scale(0.88);
+}
+
+.task.done .check-btn {
+  background: linear-gradient(135deg, #bbf7d0, #dcfce7);
+  color: #15803d;
 }
 
 .task.done .task-title {
@@ -306,6 +312,29 @@ body {
 #randomBtn {
   margin-top: 10px;
   width: 100%;
+}
+
+.sparkle {
+  position: fixed;
+  pointer-events: none;
+  font-size: 1.2rem;
+  animation: pop 700ms ease forwards;
+  z-index: 9999;
+}
+
+@keyframes pop {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.5);
+  }
+  30% {
+    opacity: 1;
+    transform: translate(-50%, -80%) scale(1.2);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -140%) scale(1.4);
+  }
 }
 
 @media (max-width: 360px) {

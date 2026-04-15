@@ -23,6 +23,13 @@ const markAllDoneBtn = document.getElementById("markAllDoneBtn");
 const resetBtn = document.getElementById("resetBtn");
 const randomTask = document.getElementById("randomTask");
 const randomBtn = document.getElementById("randomBtn");
+const cheers = [
+  "いいね！",
+  "ナイス！",
+  "その調子！",
+  "最高！",
+  "順調！"
+];
 
 function loadTasks() {
   const saved = localStorage.getItem(STORAGE_KEY);
@@ -157,7 +164,7 @@ function renderTasks() {
         <div class="task-meta">${task.done ? "完了済み" : "未完了"}</div>
       </div>
       <button class="check-btn" data-id="${task.id}">
-        ${task.done ? "✓" : "○"}
+        ${task.done ? "✨" : "GO"}
       </button>
     `;
 
@@ -213,20 +220,24 @@ randomBtn.addEventListener("click", () => {
 
 taskContainer.addEventListener("click", (event) => {
   const button = event.target.closest(".check-btn");
-
-  if (!button) {
-    return;
-  }
+  if (!button) return;
 
   const id = Number(button.dataset.id);
+  let becameDone = false;
 
   tasks = tasks.map((task) => {
     if (task.id === id) {
-      return { ...task, done: !task.done };
+      const newDone = !task.done;
+      if (newDone) becameDone = true;
+      return { ...task, done: newDone };
     }
-
     return task;
   });
+
+  if (becameDone) {
+    playRandomEffect(button);
+    showCheerMessage();
+  }
 
   render();
 });
@@ -250,6 +261,81 @@ function getProgressColor(progress) {
     bar: "#ef4444",     // 赤
     bg: "#fef2f2"
   };
+}
+
+function getRandomCheer() {
+  const index = Math.floor(Math.random() * cheers.length);
+  return cheers[index];
+}
+
+function showCheerMessage() {
+  const originalText = statusMessage.textContent;
+
+  statusMessage.textContent = getRandomCheer();
+
+  setTimeout(() => {
+    statusMessage.textContent = originalText;
+  }, 1000);
+}
+
+function sparkleEffect(target) {
+  const rect = target.getBoundingClientRect();
+
+  ["✨", "💫", "⭐"].forEach((symbol) => {
+    const el = document.createElement("div"); // ←ここ重要
+
+    const offsetX = (Math.random() - 0.5) * 80;
+    const offsetY = (Math.random() - 0.5) * 60;
+
+    el.className = "sparkle";
+    el.textContent = symbol;
+
+    el.style.left = `${rect.left + rect.width / 2 + offsetX}px`;
+    el.style.top = `${rect.top + rect.height / 2 + offsetY}px`;
+
+    document.body.appendChild(el);
+    setTimeout(() => el.remove(), 800);
+  });
+}
+
+function heartEffect(target) {
+  const rect = target.getBoundingClientRect();
+
+  const heart = document.createElement("div");
+  const offsetX = (Math.random() - 0.5) * 60;
+  const offsetY = (Math.random() - 0.5) * 40;
+
+  heart.className = "sparkle";
+  heart.textContent = "❤️";
+  heart.style.left = `${rect.left + rect.width / 2 + offsetX}px`;
+  heart.style.top = `${rect.top + rect.height / 2 + offsetY}px`;
+
+  document.body.appendChild(heart);
+  setTimeout(() => heart.remove(), 800);
+}
+
+function confettiEffect(target) {
+  const rect = target.getBoundingClientRect();
+
+  for (let i = 0; i < 6; i++) {
+    const el = document.createElement("div");
+    const offsetX = (Math.random() - 0.5) * 100;
+    const offsetY = (Math.random() - 0.5) * 60;
+
+    el.className = "sparkle";
+    el.textContent = "🎉";
+    el.style.left = `${rect.left + rect.width / 2 + offsetX}px`;
+    el.style.top = `${rect.top + rect.height / 2 + offsetY}px`;
+
+    document.body.appendChild(el);
+    setTimeout(() => el.remove(), 800);
+  }
+}
+
+function playRandomEffect(target) {
+  const effects = [sparkleEffect, heartEffect, confettiEffect];
+  const randomIndex = Math.floor(Math.random() * effects.length);
+  effects[randomIndex](target);
 }
 
 markAllDoneBtn.addEventListener("click", () => {
