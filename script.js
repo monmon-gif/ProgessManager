@@ -1,14 +1,12 @@
 const STORAGE_KEY = "saturday-plan-v1";
 
 const defaultTasks = [
-  { id: 1, title: "自転車を借りる", icon: "🚲", done: false, advice: "2人乗りがおすすめ" },
-  { id: 2, title: "キッチンカー巡り", icon: "🍔", done: false, advice: "何が食べたい気分？？" },
-  { id: 3, title: "ネモフィラ（みはらしの丘）", icon: "🌸", done: false, advice: "" },
-  { id: 4, title: "記念の森レストハウス", icon: "🏡", done: false, advice: "干し芋タルトおすすめ" },
-  { id: 5, title: "チューリップ（たまごの森）", icon: "🌷", done: false, advice: "何色が好き？" },
-  { id: 6, title: "サッカー", icon: "⚽", done: false, advice: "" },
-  { id: 7, title: "バトミントン", icon: "🏸", done: false, advice: "" },
-  { id: 8, title: "浜辺ゾーン", icon: "🌊", done: false, advice: "海でリラックスできるよ" }
+  { id: 1, title: "tantanでランチ", icon: "🍕", done: false, advice: "" },
+  { id: 2, title: "食べ歩き", icon: "🍡", done: false, advice: "" },
+  { id: 3, title: "江の島岩屋", icon: "🪨", done: false, advice: "16:30まで" },
+  { id: 4, title: "LONCAFE", icon: "☕", done: false, advice: "20:00まで" },
+  { id: 5, title: "サムエル・コッキング苑", icon: "🌿", done: false, advice: "" },
+  { id: 6, title: "海観る", icon: "🌊", done: false, advice: "" },
 ];
 
 const taskContainer = document.getElementById("taskContainer");
