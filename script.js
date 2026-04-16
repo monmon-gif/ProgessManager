@@ -76,7 +76,7 @@ function getProgressPercent() {
 function getStatusText(progress) {
   if (progress === 100) {
     return {
-      text: "完璧。最高の土曜日だね！",
+      text: "完璧。充実した！",
       color: "var(--good)",
       bg: "#dcfce7"
     };
@@ -267,12 +267,15 @@ function getRandomCheer() {
 }
 
 function showCheerMessage() {
-  const originalText = statusMessage.textContent;
+  const progress = getProgressPercent();
+  const status = getStatusText(progress);
 
   statusMessage.textContent = getRandomCheer();
 
   setTimeout(() => {
-    statusMessage.textContent = originalText;
+    statusMessage.textContent = status.text;
+    statusMessage.style.color = status.color;
+    statusMessage.style.background = status.bg;
   }, 1000);
 }
 
