@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>今日の締め</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="suggest.css">
+</head>
+<body>
+  <div class="app">
+    <div class="hero">
+      <h1>今日はここで締めよう🌿</h1>
+
+      <div class="spot">
+        🌿 葛西臨海公園で散歩
+      </div>
+
+      <div class="actions">
+        <button class="btn primary" onclick="openMap()">行く</button>
+        <button class="btn secondary" onclick="reload()">もう一回</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function reload() {
+      location.reload();
+    }
+
+    function openMap() {
+      alert("いいね、行こう🌿");
+      window.open("https://www.google.com/maps?q=葛西臨海公園", "_blank");
+    }
+  </script>
+</body>
+</html>

@@ -277,6 +277,13 @@ function showCheerMessage() {
     statusMessage.style.color = status.color;
     statusMessage.style.background = status.bg;
   }, 1000);
+
+    // 👇 ここ追加
+  if (progress === 100) {
+    setTimeout(() => {
+      window.location.href = "next.html";
+    }, 800);
+  }
 }
 
 function sparkleEffect(target) {

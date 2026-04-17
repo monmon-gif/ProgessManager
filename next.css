@@ -1,0 +1,80 @@
+/* === 次の提案画面専用 === */
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* タイトル */
+h1 {
+  font-size: 1.6rem;
+  font-weight: 900;
+  text-align: center;
+  margin-bottom: 18px;
+}
+
+/* カード */
+.hero {
+  width: 100%;
+  max-width: 420px;
+  text-align: center;
+  padding: 28px 22px;
+}
+
+/* テキスト */
+.hero p {
+  font-size: 1rem;
+  color: var(--sub);
+}
+
+/* ボタンエリア */
+.choice-actions {
+  display: flex;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+/* 共通ボタン強化 */
+.choice-actions .btn {
+  flex: 1;
+  padding: 18px 0;
+  font-size: 1.1rem;
+  font-weight: 800;
+  border-radius: 18px;
+  transition: transform 0.15s ease, box-shadow 0.2s ease;
+}
+
+/* YES強調 */
+.yes-btn {
+  transform: scale(1.05);
+  animation: pulse 1.8s ease-in-out infinite;
+}
+
+/* NOは控えめ */
+.no-btn {
+  opacity: 0.85;
+}
+
+/* 押したとき */
+.choice-actions .btn:active {
+  transform: scale(0.92);
+}
+
+/* YESのドキドキ演出 */
+@keyframes pulse {
+  0% {
+    transform: scale(1.05);
+    box-shadow: 0 8px 18px rgba(37, 99, 235, 0.15);
+  }
+  50% {
+    transform: scale(1.1);
+    box-shadow: 0 12px 26px rgba(37, 99, 235, 0.3);
+  }
+  100% {
+    transform: scale(1.05);
+    box-shadow: 0 8px 18px rgba(37, 99, 235, 0.15);
+  }
+}

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>次の提案</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="next.css">
+</head>
+<body>
+  <div class="app">
+    <h1>次の提案を受ける？</h1>
+
+    <div class="hero">
+      <div class="actions choice-actions">
+        <button class="btn primary float-btn yes-btn" onclick="goNext()">YES</button>
+        <button class="btn secondary float-btn no-btn" onclick="goBack()">NO</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function goNext() {
+      window.location.href = "suggest.html";
+    }
+
+    function goBack() {
+      window.location.href = "index.html";
+    }
+  </script>
+</body>
+</html>
